@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>js24/05</title>
+	<style type="text/css">
+		*{
+			text-align:center;
+		}
+		p{
+			color:#00f;
+		}
+		h1{
+			color:#f00;
+		}
+		
+	</style>
+	<script>
+//questão1
+		function testaPrimo(){
+		
+			var numero = document.getElementById("numero").value;
+			var primo=0;
+			
+			for(i=1;i<numero; i++)
+			{
+				if(numero%i==0)
+				{
+					primo++;
+				}	
+			}
+			if(primo>1){
+				document.getElementById("msg").innerHTML = "Não é primo!";
+			}
+			else{
+				document.getElementById("msg").innerHTML = "É primo!";
+			}		
+		}
+//questão2
+		function trocaLetra(caractere){
+			switch(caractere){
+				case "T":
+					return "P";
+				case "E":
+					return "O";
+				case "N":
+					return "L";
+				case "I":
+					return "A";
+				case "S":
+					return "R";
+				case "P":
+					return "T";
+				case "O":
+					return "E";
+				case "L":
+					return "N";
+				case "A":
+					return "I";
+				case "R":
+					return "S";
+				default: return (caractere);
+			}
+		}
+		function criptografar(){
+			var frase=document.getElementById("frase").value;
+			frase = frase.toUpperCase();
+			var fraseCriptografada= "";
+			for(var i=0; i<frase.length; i++){
+				var letra= frase.charAt(i);
+				var letraCripto= trocaLetra(letra);
+				fraseCriptografada += letraCripto;			
+			}
+			document.getElementById("msg2").innerHTML = fraseCriptografada;
+		}
+		
+
+	
+	
+	</script>
+</head>
+<body>
+<!--questão1-->
+	<form>
+		<p>Número:</p>
+		<input type="number" id="numero"/>
+		<br/>
+		<input type="button" onclick="testaPrimo()" value="Verificar"/>
+	</form>
+	<h1 id="msg"></h1>
+	<hr/>
+<!--questão2-->
+	<form>
+		<p>Texto:</p>
+		<input type="text" id="frase"/>
+		<br/>
+		<input type="button" onclick="criptografar()" value="Criptografar"/>
+	</form>
+	<h1 id="msg2"></h1>
+	<hr/>
+
+</body>
+</html>
